@@ -1,0 +1,3 @@
+com/chat/client/model/ClientModel.class
+com/chat/client/view/ClientApp.class
+com/chat/client/view/ClientController.class

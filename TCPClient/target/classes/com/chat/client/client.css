@@ -1,0 +1,152 @@
+/* ═══════════════════════════════════════════════════
+   TCP Chat Client — Dark Theme
+   ═══════════════════════════════════════════════════ */
+
+/* Root */
+.root-pane {
+    -fx-background-color: #1e1e2e;
+}
+
+/* ── Login pane ──────────────────────────────────── */
+.login-pane {
+    -fx-background-color: #2a2a3e;
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 20, 0.3, 0, 4);
+    -fx-max-width: 480;
+    -fx-max-height: 380;
+}
+
+.login-title {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #cdd6f4;
+    -fx-padding: 0 0 10 0;
+}
+
+.login-label {
+    -fx-text-fill: #a6adc8;
+    -fx-font-size: 13px;
+}
+
+.login-field {
+    -fx-background-color: #313244;
+    -fx-text-fill: #cdd6f4;
+    -fx-prompt-text-fill: #585b70;
+    -fx-border-color: #45475a;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 6 10;
+}
+
+.login-field:focused {
+    -fx-border-color: #89b4fa;
+}
+
+.login-error {
+    -fx-text-fill: #f38ba8;
+    -fx-font-size: 12px;
+}
+
+.btn-connect {
+    -fx-background-color: #89b4fa;
+    -fx-text-fill: #1e1e2e;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-padding: 8 24;
+}
+
+.btn-connect:hover {
+    -fx-background-color: #b4befe;
+}
+
+/* ── Chat pane ───────────────────────────────────── */
+.chat-pane {
+    -fx-background-color: #1e1e2e;
+}
+
+.chat-header {
+    -fx-background-color: #2a2a3e;
+    -fx-border-color: transparent transparent #313244 transparent;
+}
+
+.status-label {
+    -fx-text-fill: #a6adc8;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+.user-label {
+    -fx-text-fill: #cdd6f4;
+    -fx-font-size: 13px;
+    -fx-font-style: italic;
+}
+
+.btn-disconnect {
+    -fx-background-color: #f38ba8;
+    -fx-text-fill: #1e1e2e;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6;
+    -fx-cursor: hand;
+    -fx-padding: 4 12;
+}
+
+.btn-disconnect:hover {
+    -fx-background-color: #eba0ac;
+}
+
+.chat-area {
+    -fx-background-color: #181825;
+    -fx-text-fill: #cdd6f4;
+    -fx-font-size: 13px;
+    -fx-font-family: "Consolas", "Courier New", monospace;
+    -fx-border-color: transparent;
+    -fx-control-inner-background: #181825;
+}
+
+.chat-area .content {
+    -fx-background-color: #181825;
+}
+
+.chat-area:focused {
+    -fx-border-color: transparent;
+}
+
+.input-bar {
+    -fx-background-color: #2a2a3e;
+    -fx-border-color: #313244 transparent transparent transparent;
+}
+
+.msg-field {
+    -fx-background-color: #313244;
+    -fx-text-fill: #cdd6f4;
+    -fx-prompt-text-fill: #585b70;
+    -fx-border-color: #45475a;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 7 10;
+    -fx-font-size: 13px;
+}
+
+.msg-field:focused {
+    -fx-border-color: #89b4fa;
+}
+
+.btn-send {
+    -fx-background-color: #a6e3a1;
+    -fx-text-fill: #1e1e2e;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6;
+    -fx-cursor: hand;
+    -fx-padding: 7 20;
+}
+
+.btn-send:hover {
+    -fx-background-color: #94e2d5;
+}
+
+.btn-send:disabled,
+.msg-field:disabled {
+    -fx-opacity: 0.4;
+}

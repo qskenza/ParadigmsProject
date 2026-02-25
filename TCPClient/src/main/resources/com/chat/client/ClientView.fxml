@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<StackPane xmlns="http://javafx.com/javafx/17"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.chat.client.view.ClientController"
+           styleClass="root-pane">
+
+    <!-- ══════════════════════════════════════════════════════
+         LOGIN PANE
+         ══════════════════════════════════════════════════════ -->
+    <GridPane fx:id="loginPane" styleClass="login-pane" alignment="CENTER" hgap="12" vgap="14">
+        <padding><Insets topRightBottomLeft="40"/></padding>
+
+        <!-- Title -->
+        <Label text="TCP Chat" styleClass="login-title" GridPane.columnIndex="0"
+               GridPane.rowIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER"/>
+
+        <!-- Username -->
+        <Label text="Username" styleClass="login-label"
+               GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <TextField fx:id="fldUsername" promptText="Leave empty for read-only mode"
+                   styleClass="login-field"
+                   GridPane.columnIndex="1" GridPane.rowIndex="1" minWidth="260"/>
+
+        <!-- Server IP -->
+        <Label text="Server IP" styleClass="login-label"
+               GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+        <TextField fx:id="fldServerIp" promptText="e.g. localhost"
+                   styleClass="login-field" text="localhost"
+                   GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+        <!-- Port -->
+        <Label text="Port" styleClass="login-label"
+               GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+        <TextField fx:id="fldServerPort" promptText="e.g. 3000"
+                   styleClass="login-field" text="3000"
+                   GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+        <!-- Error label -->
+        <Label fx:id="lblLoginError" text="" styleClass="login-error"
+               GridPane.columnIndex="0" GridPane.rowIndex="4"
+               GridPane.columnSpan="2" GridPane.halignment="CENTER"/>
+
+        <!-- Connect button -->
+        <Button fx:id="btnConnect" text="Connect" styleClass="btn-connect"
+                onAction="#handleConnect" defaultButton="true"
+                GridPane.columnIndex="0" GridPane.rowIndex="5"
+                GridPane.columnSpan="2" GridPane.halignment="CENTER"
+                minWidth="140"/>
+
+        <columnConstraints>
+            <ColumnConstraints minWidth="100" hgrow="NEVER"/>
+            <ColumnConstraints hgrow="ALWAYS"/>
+        </columnConstraints>
+    </GridPane>
+
+    <!-- ══════════════════════════════════════════════════════
+         CHAT PANE
+         ══════════════════════════════════════════════════════ -->
+    <GridPane fx:id="chatPane" styleClass="chat-pane" visible="false" managed="false">
+        <rowConstraints>
+            <RowConstraints minHeight="40"  vgrow="NEVER"/>  <!-- header -->
+            <RowConstraints minHeight="400" vgrow="ALWAYS"/> <!-- chat area -->
+            <RowConstraints minHeight="50"  vgrow="NEVER"/>  <!-- input row -->
+        </rowConstraints>
+        <columnConstraints>
+            <ColumnConstraints hgrow="ALWAYS"/>
+        </columnConstraints>
+
+        <!-- ── Header bar ────────────────────────────────────── -->
+        <HBox styleClass="chat-header" alignment="CENTER_LEFT" spacing="10"
+              GridPane.rowIndex="0" GridPane.columnIndex="0">
+            <padding><Insets topRightBottomLeft="8"/></padding>
+
+            <Circle fx:id="statusCircle" radius="7" fill="RED"/>
+            <Label  fx:id="lblStatusText" text="Offline" styleClass="status-label"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label  fx:id="lblUserDisplay" text="" styleClass="user-label"/>
+            <Button fx:id="btnDisconnect" text="Disconnect" styleClass="btn-disconnect"
+                    onAction="#handleDisconnect"/>
+        </HBox>
+
+        <!-- ── Chat area ─────────────────────────────────────── -->
+        <TextArea fx:id="chatArea" styleClass="chat-area" editable="false" wrapText="true"
+                  GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+
+        <!-- ── Input row ─────────────────────────────────────── -->
+        <HBox spacing="8" styleClass="input-bar" alignment="CENTER"
+              GridPane.rowIndex="2" GridPane.columnIndex="0">
+            <padding><Insets top="6" right="10" bottom="6" left="10"/></padding>
+
+            <TextField fx:id="msgField" promptText="Type a message… (allUsers / end / bye)"
+                       styleClass="msg-field" HBox.hgrow="ALWAYS"/>
+            <Button fx:id="btnSend" text="Send" styleClass="btn-send"
+                    onAction="#handleSend" defaultButton="true" minWidth="80"/>
+        </HBox>
+    </GridPane>
+
+</StackPane>
