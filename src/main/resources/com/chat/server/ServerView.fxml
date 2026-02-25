@@ -61,7 +61,7 @@
     <HBox GridPane.columnIndex="0" GridPane.rowIndex="2"
           GridPane.columnSpan="2"
           alignment="CENTER" styleClass="footer">
-        <Label text="Group Chat Application — Mini Project 1" styleClass="footer-label"/>
+        <Label text="Group Chat Application — Project 1" styleClass="footer-label"/>
     </HBox>
 
 </GridPane>
