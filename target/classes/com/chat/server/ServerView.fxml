@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Text?>
+
+
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="com.chat.server.view.ServerController"
+          styleClass="root-pane"
+          hgap="10" vgap="10">
+
+    <!-- Column constraints -->
+    <columnConstraints>
+        <ColumnConstraints percentWidth="65"/>
+        <ColumnConstraints percentWidth="35"/>
+    </columnConstraints>
+
+    <!-- Row constraints -->
+    <rowConstraints>
+        <RowConstraints minHeight="50" maxHeight="50"/>
+        <RowConstraints vgrow="ALWAYS"/>
+        <RowConstraints minHeight="50" maxHeight="50"/>
+    </rowConstraints>
+
+    <!-- ── Header row ─────────────────────────────────────────────────────── -->
+    <HBox GridPane.columnIndex="0" GridPane.rowIndex="0"
+          GridPane.columnSpan="2"
+          alignment="CENTER_LEFT" spacing="12" styleClass="header-bar">
+
+        <Text text="TCP Chat Server" styleClass="header-title"/>
+
+        <HBox alignment="CENTER_LEFT" spacing="6">
+            <Circle fx:id="statusCircle" radius="7" fill="red"/>
+            <Label fx:id="lblStatus" text="Stopped" styleClass="status-label"/>
+        </HBox>
+
+        <Region HBox.hgrow="ALWAYS"/>
+
+        <Button fx:id="btnStartStop" text="Start Server"
+                onAction="#handleStartStop" styleClass="btn-primary"/>
+    </HBox>
+
+    <!-- ── Log area ───────────────────────────────────────────────────────── -->
+    <VBox GridPane.columnIndex="0" GridPane.rowIndex="1"
+          spacing="4" styleClass="panel">
+        <Label text="Server Log" styleClass="panel-title"/>
+        <TextArea fx:id="logArea" editable="false" wrapText="true"
+                  VBox.vgrow="ALWAYS" styleClass="log-area"/>
+    </VBox>
+
+    <!-- ── Active users panel ─────────────────────────────────────────────── -->
+    <VBox GridPane.columnIndex="1" GridPane.rowIndex="1"
+          spacing="4" styleClass="panel">
+        <Label text="Connected Users" styleClass="panel-title"/>
+        <ListView fx:id="userListView" VBox.vgrow="ALWAYS" styleClass="user-list"/>
+    </VBox>
+
+    <!-- ── Footer ─────────────────────────────────────────────────────────── -->
+    <HBox GridPane.columnIndex="0" GridPane.rowIndex="2"
+          GridPane.columnSpan="2"
+          alignment="CENTER" styleClass="footer">
+        <Label text="Group Chat Application — Mini Project 1" styleClass="footer-label"/>
+    </HBox>
+
+</GridPane>

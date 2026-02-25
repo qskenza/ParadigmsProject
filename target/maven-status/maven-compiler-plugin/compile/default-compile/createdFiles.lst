@@ -1,0 +1,5 @@
+com\chat\server\model\ServerModel.class
+com\chat\server\model\ClientHandler.class
+com\chat\server\view\ServerApp.class
+com\chat\server\view\ServerController$ColoredUserCell.class
+com\chat\server\view\ServerController.class
