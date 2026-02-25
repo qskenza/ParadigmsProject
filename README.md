@@ -22,7 +22,7 @@ The application strictly follows **Model-View separation** — socket/network lo
 
 **Server**
 - Handles multiple clients concurrently (thread-per-connection)
-- Broadcasts messages formatted as `[username @ HH:mm]: message`
+- Broadcasts messages formatted as `[HH:mm:ss] username: message`
 - Live ListView of connected users with random color coding
 - Activity log (server start, client connections, disconnections)
 
